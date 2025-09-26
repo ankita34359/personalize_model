@@ -1,0 +1,290 @@
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.confetti-container.active {
+  opacity: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.level-up-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.level-up-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.level-up-modal {
+  position: relative;
+  background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+  border-radius: 2rem;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 25px 80px rgba(139, 92, 246, 0.6), 0 0 120px rgba(6, 182, 212, 0.4), inset 0 2px 0
+    rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  animation: levelUpAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+.level-up-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.level-up-content {
+  position: relative;
+  z-index: 2;
+}
+
+.level-up-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  animation: iconBounce 0.8s ease-out 0.3s both;
+}
+
+.level-up-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  animation: titleGlow 0.8s ease-out 0.5s both;
+}
+
+.level-up-level {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  animation: levelSlide 0.8s ease-out 0.7s both;
+}
+
+.level-up-message {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  animation: messageSlide 0.8s ease-out 0.9s both;
+}
+
+.level-up-effects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.effect-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: ringExpand 2s ease-out infinite;
+}
+
+.ring-1 {
+  width: 100px;
+  height: 100px;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 150px;
+  height: 150px;
+  animation-delay: 0.5s;
+}
+
+.ring-3 {
+  width: 200px;
+  height: 200px;
+  animation-delay: 1s;
+}
+
+@keyframes levelUpAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes iconBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes levelSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes messageSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .level-up-modal {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+
+  .level-up-icon {
+    font-size: 3rem;
+  }
+
+  .level-up-title {
+    font-size: 2.5rem;
+  }
+
+  .level-up-level {
+    font-size: 1.75rem;
+  }
+
+  .level-up-message {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-up-modal {
+    padding: 1.5rem;
+  }
+
+  .level-up-icon {
+    font-size: 2.5rem;
+  }
+
+  .level-up-title {
+    font-size: 2rem;
+  }
+
+  .level-up-level {
+    font-size: 1.5rem;
+  }
+
+  .level-up-message {
+    font-size: 1rem;
+  }
+}
