@@ -16,7 +16,7 @@ function Navbar() {
         {/* Brand */}
         <Link to="/" className="navbar-brand">
           <span className="brand-icon">⚔️</span>
-          <span className="brand-text">ConProy</span>
+          <span className="brand-text">ConPro</span>
         </Link>
 
         {/* Navigation Links - Hidden on mobile, shown in dropdown */}
