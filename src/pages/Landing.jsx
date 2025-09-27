@@ -98,7 +98,7 @@ function Landing() {
       {!user.isAuthenticated && (
         <div className="landing-features">
           <div className="container">
-            <h2 className="features-title">Why Choose Solo Leveling Academy?</h2>
+            <h2 className="features-title">Why Choose ConPro?</h2>
             <div className="features-grid">
               <div className="feature-card glass-card">
                 <div className="feature-icon">🎯</div>
